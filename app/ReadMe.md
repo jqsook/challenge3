@@ -33,6 +33,22 @@ Repeat a similar process for deleting a list and creating and deleting Items (NO
 For the Counter section of the card
 https://www.geeksforgeeks.org/collect-js-count-function/#:~:text=The%20count()%20function%20is,is%20applied%20to%20the%20collection.&text=Return%20Value%3A%20Returns%20the%20count%20of%20the%20element%20in%20that%20collection.
 
+For the checked boxes on the card- this is going to help with the building of the logic for the check box output
+
+https://stackoverflow.com/questions/11838667/javascript-count-checked-checkbox
+
+<!-- Checked boxes again -->
+
+https://stackoverflow.com/questions/11838667/javascript-count-checked-checkbox
+
+<!-- For the counter of checks-->
+
+http://jsfiddle.net/nnnnnn/ZjK3w/2/
+
+<!-- To change the coloring of the top of the card and the buttons -->
+
+https://stackoverflow.com/questions/40537142change-background-color-using-event-handler
+
 <!-- Cut out sections -->
 
 // } //THis was added to test to make sure the botton is operating

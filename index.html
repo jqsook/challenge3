@@ -38,6 +38,7 @@
       <form
         class="row px-5 py-3 align-items-end"
         onsubmit="app.tasksController.createTask(event)"
+        
       >
         <div class="col-3">
           <label for="name" class="text-dark">Customer Name</label>
@@ -83,19 +84,19 @@
         </div>
 
         <!-- Color selector -->
-        <input type="color" class="rounded-circle mb-2 mr-2" id="color-pkr" onclick="app.tasksController.colorChange('${t.id}')" />
+        <input type="color" class="rounded-circle mb-2 mr-2" id="color-pkr" />
         <!-- Not sure- trying to pass the value in to the function to assign the selected color to the targeted items and use the id to remember, while pushing items to the checkitem array -->
 
 
         <!-- Submit Button -->
-        <button class="col-2 btn btn-primary h-50" >Create Repair Order</button>
+        <button class="col-2 btn btn-primary h-50"onclick="app.tasksController.cardColor('${t.id}')" >Create Repair Order</button>
       </form>
 <!-- Card Generation Form area -->
       <div id="task" class="row justify-content-around">
       
 <!-- Card Template  DO NOT CHANGE FORMTTING it messes with the Layout/Operation-->
             <div class="col-3 m-3 bg-light px-0">
-                <div class="bg-dark text-light">
+                <div class="bg-dark text-light name='color-new'">
                     Customer Name
               <button class="col-2 ml-5" onclick="app.tasksController.endRepairOrder('${t.id}')">☓</button>
                 </div>
@@ -125,10 +126,11 @@
                             Repair Check box
                           </label>
                     <button onclick="app.tasksController.endRepairItem('${c.id}')"><span class="bg-transparent">🗑</span></button>
+          
                 </div>
                         </li>
                     </ul>
-                    <form onsubmit="app.CheckItemsController.addCheckItem(event, '${t.id}' )">
+                    <form onsubmit="app.CheckItemsController.addCheckItem(event, '${c.id}' )">
                     <div class="input-group p-3">
                     <input type="text" class="form-control" placeholder="Add Repair Task.." >
                     <div class="input-group-append">

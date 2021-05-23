@@ -12,10 +12,9 @@ function _drawTasks() {
 
     tasks.forEach(t => {
         let checkitems = ProxyState.checkitems.filter(c => c.task == t.id)
-    
         template += `
         <div class="col-3 m-3 bg-light px-0">
-                <div class="bg-dark text-light">
+                <div class="bg-dark text-light" name="color-new">
                     ${t.name}
                     <button class="col-2 ml-5" onclick="app.tasksController.endRepairOrder('${t.id}')">☓</button>
                 </div>
@@ -28,21 +27,11 @@ function _drawTasks() {
                     <b class="col-12"></b>
                     <ul class="col-12 bg-shade">`
 
-                    checkitems.forEach(t =>{
-                    
-                    template +=` <li class="row align-items-center">
-                        <div class="form-check">
-                            <input
-                            class="form-check-input"
-                            type="checkbox"
-                            value=""
-                            name="defaultCheck"/>
-                        <label class="form-check-label" for="defaultCheck">
-                            ${c.complaint}
-                        </label>
-                    <button onclick="app.tasksController.endRepairItem('${c.id}')"><span class="bg-transparent">🗑</span></button>
-                            </div>
-                        </li>`
+                    checkitems.forEach(t =>{`
+                    <li class="row align-items-center">
+                    <div class="col-7">${t.name}</div>
+                    </li>
+                        `
                     })
 
 
@@ -69,7 +58,7 @@ export class TasksController {
         ProxyState.on('tasks', _drawTasks)
         ProxyState.on('checkitems', _drawTasks)
         loadState()
-        // cardColors()
+        
     }
     
     
@@ -85,7 +74,16 @@ export class TasksController {
         form.reset()
     }
 
+    // Function to change the coloring of the header 
+    // https://stackoverflow.com/questions/40537142/change-background-color-using-event-handler
+    cardColor(taskId) {
+        var elements = document.getElementsByName('color-new');
+        elements = document.getElementsByName('color-pkr').value
+        tasksService.cardColor(taskId)
 
+    }
+    
+// Functons for the deletion of the work orders.
     endRepairOrder(taskId) {
         let con =confirm("Would you like to delete the Repair Order?")
         console.log('RO- deleted', taskId)
@@ -96,7 +94,7 @@ export class TasksController {
         }
     }
 
-    endRepairItem(checkitems) {
+    endRepairItem(checkitems) { //this was working fine now it 404's  since adding the form 
         let repcon = confirm("Would you like to delete the Repair Item?")
         console.log('Item- deleted')
         if (repcon == true) {
@@ -105,13 +103,6 @@ export class TasksController {
             console.log("cancelled task delete")
         }
     }
-
-}
-
-// This is the logic to target each id's specific
-function colorChange(taskId) {
-    let colorChange = document.getElementById('color-pkr').value
-    
 
 }
 
@@ -135,3 +126,17 @@ function colorChange(taskId) {
 //             </label>
 //                     <button><span class="bg-transparent">🗑</span></button>
 //                 </div>
+
+// <li class="row align-items-center">
+//                         <div class="form-check">
+//                             <input
+//                             class="form-check-input"
+//                             type="checkbox"
+//                             value=""
+//                             name="color-new"/>
+//                         <label class="form-check-label" for="defaultCheck">
+//                             ${c.complaint}
+//                         </label>
+//                     <button id="countBox" onclick="app.tasksController.endRepairItem('${c.id}')"><span class="bg-transparent">🗑</span></button>
+//                             </div>
+//                         </li>

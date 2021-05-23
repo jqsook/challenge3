@@ -12,6 +12,12 @@ class TasksService {
     endRepairOrder(taskId) {  
     ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
     console.log(ProxyState.tasks)
+    }
+    
+    // card coloring assigned to specific ID and saved to the array.
+    cardColor(taskId) {  
+    ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+    console.log("It should change colors on the input of the rgb")
     } 
 
     endRepairItem(checkitems) {  
@@ -20,7 +26,6 @@ class TasksService {
         
     }
 
-    
     createTask(newTask) {
         ProxyState.tasks  = [...ProxyState.tasks, new Task(newTask)]
         console.log("You are in the Tasks Service", ProxyState.tasks)
