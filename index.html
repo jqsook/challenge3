@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/style/main.css" />
+    <title>challenge3</title>
+  </head>
+
+  <body>
+    <!-- Navbar/ Header -->
+    <header>
+      <nav
+        class="
+          row
+          justify-content-center
+          navbar navbar-dark navbar-expand
+          bg-primary
+          text-light
+          m-0
+        "
+      >
+        <a class="navbar-brand">
+          <span class="ml-2">Repair Order Manager</span>
+        </a>
+      </nav>
+    </header>
+
+    <main class="container-fluid">
+      <!-- Task Card Generator-->
+      <form
+        class="row px-5 py-3 align-items-end"
+        onsubmit="app.tasksController.createTask(event)"
+      >
+        <div class="col-3">
+          <label for="name" class="text-dark">Customer Name</label>
+          <input
+            required
+            minlength="2"
+            maxlength="15"
+            type="text"
+            name="name"
+            id=""
+            class="form-control"
+            placeholder=""
+            aria-describedby="helpId"
+          />
+        </div>
+        <div class="col-3">
+          <label for="vehicle" class="text-dark">Customer Vehicle</label>
+          <input
+            required
+            minlength="2"
+            maxlength="20"
+            type="text"
+            name="vehicle"
+            id=""
+            class="form-control"
+            placeholder=""
+            aria-describedby="helpId"
+          />
+        </div>
+        <div class="col-3">
+          <label for="complaint" class="text-dark">Customer Complaint</label>
+          <input
+            required
+            minlength="2"
+            maxlength="20"
+            type="text"
+            name="complaint"
+            id=""
+            class="form-control"
+            placeholder=""
+            aria-describedby="helpId"
+          />
+        </div>
+
+        <!-- Color selector -->
+        <input type="color" class="rounded-circle mb-2 mr-2" id="color-pkr" onclick="app.tasksController.colorChange('${t.id}')" />
+        <!-- Not sure- trying to pass the value in to the function to assign the selected color to the targeted items and use the id to remember, while pushing items to the checkitem array -->
+
+
+        <!-- Submit Button -->
+        <button class="col-2 btn btn-primary h-50" >Create Repair Order</button>
+      </form>
+<!-- Card Generation Form area -->
+      <div id="task" class="row justify-content-around">
+      
+<!-- Card Template  DO NOT CHANGE FORMTTING it messes with the Layout/Operation-->
+            <div class="col-3 m-3 bg-light px-0">
+                <div class="bg-dark text-light">
+                    Customer Name
+              <button class="col-2 ml-5" onclick="app.tasksController.endRepairOrder('${t.id}')">☓</button>
+                </div>
+                <div class="row justify-content-center py-1 card-body">
+                    <b class="col-12">Repairs:</b>
+                    
+                    
+                    
+                    <ul class="col-12 bg-shade">
+                        <li class="row align-items-center"></li>
+                        <li class="row align-items-center"> </li>
+                    </ul>
+                    <b class="col-12"></b>
+                    <ul class="col-12 bg-shade">
+                    <ul class="col-12 bg-shade">
+                    
+                        
+                      
+                      <li class="row align-items-center">
+                          <div class="form-check">
+                            <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value=""
+                            name="defaultCheck"/>
+                          <label class="form-check-label" for="defaultCheck">
+                            Repair Check box
+                          </label>
+                    <button onclick="app.tasksController.endRepairItem('${c.id}')"><span class="bg-transparent">🗑</span></button>
+                </div>
+                        </li>
+                    </ul>
+                    <form onsubmit="app.CheckItemsController.addCheckItem(event, '${t.id}' )">
+                    <div class="input-group p-3">
+                    <input type="text" class="form-control" placeholder="Add Repair Task.." >
+                    <div class="input-group-append">
+                      
+                    <button class="p-0 border-0 "><span class="input-group-text">✚</span></button>
+                    </div>
+                    </div>
+                    </form>
+                    
+                </div>
+            </div>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="container-fluid bg-dark text-light">
+      <div class="row text-center">
+        <div class="col">
+          <p>
+            <small>Busted Knuckles Garage</small>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app/main.js" type="module"></script>
+  </body>
+</html>
+
