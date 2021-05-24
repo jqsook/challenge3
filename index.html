@@ -61,7 +61,7 @@
             maxlength="20"
             type="text"
             name="vehicle"
-            id=""
+            
             class="form-control"
             placeholder=""
             aria-describedby="helpId"
@@ -75,7 +75,7 @@
             maxlength="20"
             type="text"
             name="complaint"
-            id=""
+            
             class="form-control"
             placeholder=""
             aria-describedby="helpId"
@@ -90,7 +90,7 @@
         <div class="col-2 p-2 "> Task color selection
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group" role="group" aria-label="First group" >
-
+<!-- Cant pass the color value in to attach to the id in checked items. -->
         <button type="button" id="Button"class="btn btn-success"onclick="app.tasksController.btnOne('${t.id}')" disabled>1</button>
         <button type="button" id="Button2"class="btn btn-info"onclick="app.tasksController.btnTwo('${t.id}')"disabled> 2</button>
         <button type="button" id="Button3"class="btn btn-primary" onclick="app.tasksController.btnThree('${t.id}')"disabled>3</button>
@@ -138,14 +138,14 @@
                           <label class="form-check-label" for="defaultCheck">
                             Repair Check box
                           </label>
-                    <button onclick="app.tasksController.endRepairItem('${c.id}')"><span class="bg-transparent">🗑</span></button>
+                    <button name="repairItem" onclick="app.tasksController.endRepairItem('${c.id}')"><span class="bg-transparent">🗑</span></button>
                         </div>
                         </li>
                 </div>  
                     </ul>
-                    <form onsubmit="app.CheckItemsController.addCheckItem(event, '${c.id}' )">
+                    <form onsubmit="app.checkItemsController.addCheckItem(event, 'taskId' )">
                     <div class="input-group p-3">
-                    <input type="text" class="form-control" placeholder="Add Repair Task.." >
+                    <input type="text" class="form-control" name="name"placeholder="Add Repair Task.." >
                     <div class="input-group-append">
                       
                     <button class="p-0 border-0 "><span class="input-group-text">✚</span></button>

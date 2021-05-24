@@ -1,49 +1,52 @@
 import { checkItemsService } from "../Services/CheckItemsService.js"
 
 
-
-function drawItems(){
-  let template = ''
-  ProxyState.items.forEach(t => template += t.Template)
-  document.getElementById('checkbox').innerHTML = template
-}
-
-
-export default class CheckItemsController{
-  constructor(){
+export default class CheckItemsController {
+  constructor() {
   }
 
   addCheckItem(event, task) {
+    console.log("Made it to the Cheitems controller")
     event.preventDefault()
     let form = event.target
     let newcheckitems = {
-      name: form.name.value,  
-      task: task,
-      
+      name: form.name.value,
+      task: task
     }
-    form.reset()
-    drawItems()
+      console.log(newcheckitems.name)
+
+    
+    
     checkItemsService.addCheckItem(newcheckitems)
     
   }
+}
+
+
 
   //Want to display only after the onclick of the create check item
-  defaultCount() {
-       document.getElementById("countBox").onclick = function() {
-    isCountCheck("Check something");
-};
+//   defaultCount() {
+//     document.getElementById("countBox").onclick = function () {
+//       isCountCheck("Check something");
+//     };
 
-function isCountCheck(helperMsg) {
-    var i, len, inputs = document.chkBxForm.getElementsByTagName("input");
-    for (i = 0, len = inputs.length; i < len; i++) {
-        if (inputs[i].type === "checkbox" && inputs[i].checked) return true;
-    }
-    console.log("The counter is here", helperMsg);
-    return false;
-}
+    
+//     //set a variable for the count of the ones that are checked and a variable for the inputs.length
+//     function isCountCheck(helperMsg) {
+      
+//       let countBox = 0
+//       var i, len, inputs = document.chkBxForm.getElementsByTagName("input");
+//       for (countBox = 0, len = inputs.length; countBox < len; countBox++) {
+//         if (inputs[i].type === "checkbox" && inputs[i].checked)
+//           totalBox = len
+//         let inputCount = countBox / totalBox
+//         console.log("In the Count Check func", inputCount)
+//         return inputCount;
+//       }
+//     }
+//   }
+// }
 
-    }
-}
 
 
 
