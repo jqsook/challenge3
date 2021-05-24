@@ -2,6 +2,13 @@ import { checkItemsService } from "../Services/CheckItemsService.js"
 
 
 
+function drawItems(){
+  let template = ''
+  ProxyState.items.forEach(t => template += t.Template)
+  document.getElementById('checkbox').innerHTML = template
+}
+
+
 export default class CheckItemsController{
   constructor(){
   }
@@ -15,7 +22,7 @@ export default class CheckItemsController{
       
     }
     form.reset()
-    
+    drawItems()
     checkItemsService.addCheckItem(newcheckitems)
     
   }
@@ -38,9 +45,7 @@ function isCountCheck(helperMsg) {
     }
 }
 
-// From the reading- could I use the blog post word counter and look for the t/f on the check boxes?
-// const getWordCount = (text) => text ? text.trim().split(/\s+/).length : 0;
-// () => blogObserver.broadcast()
+
 
 // var form = document.forms[0]; // your form element (whatever)
 // var checkedElms = form.querySelectorAll(':checked').length;
@@ -56,22 +61,3 @@ function isCountCheck(helperMsg) {
 //     alert(helperMsg);
 //     return false;
 // }
-
-// addCar(event) {
-//     event.preventDefault()
-//     console.log(event) //For testing to see what happens before prevent default.  Should see submit event in the console.
-
-//     // THis is for taking info from the forms
-//     let form = event.target
-//     let formData = {
-//       make: form.make.value,
-//       model: form.model.value,
-//       price: form.price.value,
-//       color: form.color.value,
-//       miles: form.miles.value,
-//       img: form.img.value
-//     }
-//     console.log(formData)
-//     CarsService.addCar(formData)
-//     //Dont need to draw as it should update when the page changes
-//     form.reset() 

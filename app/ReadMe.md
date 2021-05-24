@@ -177,3 +177,73 @@ https://stackoverflow.com/questions/52279665/how-to-change-bootstrap-card-header
         <!-- </div> -->
       </div>
     </div>
+
+// const collect = require('collect.js');
+// let selected =
+// const collection = collect([document.getElementsByClassName('defaultCheck')]);
+// const x = collection.count();
+
+// console.log(`Total number of elements are : ${x}`)
+//
+
+{/_ <div class="form-check"> _/}
+// <input
+// class="form-check-input"
+// type="checkbox"
+// value=""
+// id="defaultCheck1" />
+// <label class="form-check-label" for="defaultCheck1">
+// ${c.name}
+// </label>
+// <button><span class="bg-transparent">🗑</span></button>
+// </div>
+
+// <li class="row align-items-center">
+// <div class="form-check">
+// <input
+// class="form-check-input"
+// type="checkbox"
+// value=""
+// name="color-new"/>
+// <label class="form-check-label" for="defaultCheck">
+// ${c.complaint}
+//                         </label>
+//                     <button id="countBox" onclick="app.tasksController.endRepairItem('${c.id}')"><span class="bg-transparent">🗑</span></button>
+// </div>
+// </li>
+
+//From site http://jsfiddle.net/nnnnnn/ZjK3w/2/
+// defaultCount() {
+// document.getElementById("countBox").onclick = function () {
+// isCountCheck("Check something");
+// };
+
+    //     function isCountCheck(helperMsg) {
+    //         var i, len, inputs = document.chkBxForm.getElementsByTagName("input");
+    //         for (i = 0, len = inputs.length; i < len; i++) {
+    //             if (inputs[i].type === "checkbox" && inputs[i].checked) return true;
+    //         }
+    //         console.log("The counter is here", helperMsg);
+    //         return false;
+    //     }
+
+    // }
+
+
+
+      // checkitems.forEach(t => {  //supposed to be the card section
+      //   `
+
+      //       `
+      // })
+
+// <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+// <div class="btn-group" role="group" aria-label="First group" >
+
+// <button type="button" id="Button"class="btn btn-success"onclick="app.tasksController.btnOne('${t.id}')" disabled>1</button>
+//         <button type="button" id="Button2"class="btn btn-info"onclick="app.tasksController.btnTwo('${t.id}')"disabled> 2</button>
+// <button type="button" id="Button3"class="btn btn-primary" onclick="app.tasksController.btnThree('${t.id}')"disabled>3</button>
+//         <button type="button" id="Button4"class="btn btn-warning" onclick="app.tasksController.btnFour('${t.id}')"disabled>4</button>
+// <button type="button" id="Button5"class="btn btn-danger" onclick="app.tasksController.btnFive('${t.id}')"disabled>5</button>
+// </div>
+// </div>

@@ -97,22 +97,7 @@ export class TasksController {
             console.log("cancelled task delete")
         }
     }
-    //From site  http://jsfiddle.net/nnnnnn/ZjK3w/2/
-    defaultCount() {
-        document.getElementById("countBox").onclick = function () {
-            isCountCheck("Check something");
-        };
-
-        function isCountCheck(helperMsg) {
-            var i, len, inputs = document.chkBxForm.getElementsByTagName("input");
-            for (i = 0, len = inputs.length; i < len; i++) {
-                if (inputs[i].type === "checkbox" && inputs[i].checked) return true;
-            }
-            console.log("The counter is here", helperMsg);
-            return false;
-        }
-
-    }
+   
 
      // Function to change the coloring of the header // It does not stick with the individual cards (id issue?  If I make it global the information is not secure.)
     btnOne(taskId) {
@@ -156,35 +141,3 @@ export class TasksController {
 
 
 
-
-//  const collect = require('collect.js');
-//         let selected = 
-//         const collection = collect([document.getElementsByClassName('defaultCheck')]);
-//         const x = collection.count();
-
-//         console.log(`Total number of elements are : ${x}`)
-//   <div class="form-check">
-//                     <input
-//                         class="form-check-input"
-//                         type="checkbox"
-//                         value=""
-//                         id="defaultCheck1" />
-//                     <label class="form-check-label" for="defaultCheck1">
-//                         ${c.name}
-//             </label>
-//                     <button><span class="bg-transparent">🗑</span></button>
-//                 </div>
-
-// <li class="row align-items-center">
-//                         <div class="form-check">
-//                             <input
-//                             class="form-check-input"
-//                             type="checkbox"
-//                             value=""
-//                             name="color-new"/>
-//                         <label class="form-check-label" for="defaultCheck">
-//                             ${c.complaint}
-//                         </label>
-//                     <button id="countBox" onclick="app.tasksController.endRepairItem('${c.id}')"><span class="bg-transparent">🗑</span></button>
-//                             </div>
-//                         </li>
