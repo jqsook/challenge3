@@ -8,7 +8,10 @@ class CheckItemsService {
         ProxyState.checkitems = ProxyState.checkitems
         console.log('in the items service', ProxyState.checkitems)
     }
-  
+  createCheckItem(newCheckItem) {
+        ProxyState.tasks  = [...ProxyState.tasks, new CheckItem(newCheckItem)]
+        // console.log("You are in the Tasks Service", ProxyState.tasks)
+    }
 }
 
 export const checkItemsService = new CheckItemsService()

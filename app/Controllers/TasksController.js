@@ -50,7 +50,10 @@ function _drawTasks() {
                 template +=   `</ul>
                     <form onsubmit="app.checkItemsController.addCheckItem(event, '${t.id}' )">
                     <div class="input-group p-3">
-                    <input type="text" class="form-control" name="name" placeholder="Add Repair Task.." >
+                    <input type="text" class="form-control" name="name" placeholder="Add Repair Task.."
+                    required
+                    minlength="2"
+                    maxlength="15">
                     <div class="input-group-append">
 
                     <button class="p-0 border-0 "><span class="input-group-text">✚</span></button>
