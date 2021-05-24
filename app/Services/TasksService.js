@@ -14,11 +14,6 @@ class TasksService {
     console.log(ProxyState.tasks)
     }
     
-    // card coloring assigned to specific ID and saved to the array.
-    cardColor(taskId) {  
-    ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
-    console.log("It should change colors on the input of the rgb")
-    } 
 
     endRepairItem(checkitems) {  
         ProxyState.checkitems = ProxyState.checkitems.filter(c => c.id != checkitemsId)
@@ -30,6 +25,30 @@ class TasksService {
         ProxyState.tasks  = [...ProxyState.tasks, new Task(newTask)]
         console.log("You are in the Tasks Service", ProxyState.tasks)
     }
+
+     // card coloring assigned to specific ID and saved to the array.
+    btnOne(color, taskId) {  
+    ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+    console.log("button 1 is in services", color, taskId)
+    } 
+    btnTwo(taskId) {  
+    // ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+    console.log("button 2 is in services")
+    } 
+    btnThree(taskId) {  
+    // ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+    console.log("button 3 is in services")
+    } 
+    btnFour(taskId) {  
+    // ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+    console.log("button 4 is in services")
+    } 
+    btnFive(taskId) {  
+    // ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+    console.log("button 5 is in services")
+    } 
+
+
 
 }
 

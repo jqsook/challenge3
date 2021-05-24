@@ -10,11 +10,9 @@ export default class CheckItemsController{
     event.preventDefault()
     let form = event.target
     let newcheckitems = {
-      name: form.name.value,
-      complaint: form.complaint.value,  //This and color are new
-      color: form.color.value,
+      name: form.name.value,  
       task: task,
-      count: displaycounter
+      
     }
     form.reset()
     

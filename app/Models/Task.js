@@ -1,12 +1,12 @@
 import { generateId } from "../Utils/GenerateId.js"
 
 export class Task {
-    constructor({ name, vehicle, complaint, id }) {
+    constructor({ name, vehicle, complaint, color, id }) {
         this.id = id || generateId()
         this.name = name
         this.vehicle = vehicle
         this.complaint = complaint
-        // this.color = color This is try and assign the color to the card.
+        this.color = color  //Having trouble defining this item to attach it and the id to the card-- Hoisting issue???
     }
 }
 

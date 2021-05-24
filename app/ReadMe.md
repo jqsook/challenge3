@@ -46,8 +46,9 @@ https://stackoverflow.com/questions/11838667/javascript-count-checked-checkbox
 http://jsfiddle.net/nnnnnn/ZjK3w/2/
 
 <!-- To change the coloring of the top of the card and the buttons -->
+<!-- This one actually works -->
 
-https://stackoverflow.com/questions/40537142change-background-color-using-event-handler
+https://stackoverflow.com/questions/52279665/how-to-change-bootstrap-card-header-value-with-java-script
 
 <!-- Cut out sections -->
 
