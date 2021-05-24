@@ -34,12 +34,11 @@
     </header>
 
     <main class="container-fluid">
-      <!-- Task Card Generator-->
+      <!-- Task Card Generator -->
       <form
-        class="row px-5 py-2 align-items-start"
-        onsubmit="app.tasksController.createTask(event)"
-        
-      >
+        class="row align-items-start "
+        onsubmit="app.tasksController.createTask(event)">
+
         <div class="col-3">
           <label for="name" class="text-dark">Customer Name</label>
           <input
@@ -83,15 +82,16 @@
           />
         </div>
         <!-- Submit Button -->
-        <button class="col-2 btn btn-primary h-50 ml-3 mt-4">Create Repair Order</button>
+        <button class="col-2 btn btn-primary h-50 mt-4 ml-3">Create Repair Order</button>
 
         
         <!-- Color selector -->
+        
         <div class="col-2 p-2 "> Task color selection
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group" role="group" aria-label="First group" >
 
-        <button type="button" id="Button"class="btn btn-success"onclick="app.tasksController.btnOne('${t.color, t.id}')" disabled>1</button>
+        <button type="button" id="Button"class="btn btn-success"onclick="app.tasksController.btnOne('${t.id}')" disabled>1</button>
         <button type="button" id="Button2"class="btn btn-info"onclick="app.tasksController.btnTwo('${t.id}')"disabled> 2</button>
         <button type="button" id="Button3"class="btn btn-primary" onclick="app.tasksController.btnThree('${t.id}')"disabled>3</button>
         <button type="button" id="Button4"class="btn btn-warning" onclick="app.tasksController.btnFour('${t.id}')"disabled>4</button>
@@ -107,10 +107,10 @@
 <!-- Card Template  DO NOT CHANGE FORMTTING it messes with the Layout/Operation-->
             <div class="col-3 m-3 bg-light px-0 border border-dark">
                 <div class="text-dark id='color-new'">
-                    Customer Name
+                    <span class="ml-2">Customer Name</span>
               <button class="col-2 ml-5" onclick="app.tasksController.endRepairOrder('${t.id}')">☓</button>
                 </div>
-                <div class="ml-3">
+                <div class="ml-2">
                 <span>0/5 Repairs</span>
                 </div>
                 <div class="row justify-content-center py-1 card-body ">

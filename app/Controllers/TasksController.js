@@ -70,10 +70,10 @@ export class TasksController {
             vehicle: form.vehicle.value,
             complaint: form.complaint.value,
             id: form.id.value,  //Where do i get this from ?????
-            color: form.color.value //Where do I get this from ????? If not from form 
+            // color: form.color.value //Where do I get this from ????? If not from form 
         }
         tasksService.createTask(newTask)
-        document.getElementById("Button").disabled = false;  //Test to see if I get ID pushed- hoisting?
+        document.getElementById("Button").disabled = false;  //Test to see if I get ID pushed- hoisting? Wont let me abstract into a function (all the buttons) 
         form.reset()
         
     }
@@ -97,6 +97,7 @@ export class TasksController {
             console.log("cancelled task delete")
         }
     }
+    //From site  http://jsfiddle.net/nnnnnn/ZjK3w/2/
     defaultCount() {
         document.getElementById("countBox").onclick = function () {
             isCountCheck("Check something");
@@ -113,8 +114,8 @@ export class TasksController {
 
     }
 
-     // Function to change the coloring of the header // It does not stick with the individual cards (id issue?  )
-    btnOne(color, taskId) {
+     // Function to change the coloring of the header // It does not stick with the individual cards (id issue?  If I make it global the information is not secure.)
+    btnOne(taskId) {
         // console.log("button 1 is in controller")
          var x = document.getElementById("colornew");
         x.style.backgroundColor="#27AE60";
