@@ -98,7 +98,7 @@ export class TasksController {
             vehicle: form.vehicle.value,
             complaint: form.complaint.value,
             id: form.id.value,
-            
+            // color: form.color.value Its still not registering the coloring??? Going to need an exorcist- better call the pope.
         }
         tasksService.createTask(newTask)
         
