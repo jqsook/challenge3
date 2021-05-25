@@ -1,8 +1,11 @@
+import { ProxyState } from '../AppState.js'
 import { checkItemsService } from "../Services/CheckItemsService.js"
-
+import { loadState } from '../Utils/LocalStorage.js'
 
 export default class CheckItemsController {
   constructor() {
+    ProxyState.on('checkitems')
+        loadState()
   }
 
   addCheckItem(event, task) {
@@ -20,7 +23,37 @@ export default class CheckItemsController {
     checkItemsService.addCheckItem(newcheckitems)
     
   }
+
+endRepairItem(checkitems) {
+        let repcon = confirm("Would you like to delete the Repair Item?")
+        console.log('Item-deleted', checkitems)
+        if (repcon == true) {
+            checkItemsService.endRepairItem(checkitems)
+        } else {
+            console.log("cancelled task delete")
+        }
+    }
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

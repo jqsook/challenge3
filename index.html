@@ -81,32 +81,20 @@
             aria-describedby="helpId"
           />
         </div>
-        <!-- Submit Button -->
-        <button class="col-2 btn btn-primary h-50 mt-4 ml-3">Create Repair Order</button>
-
+        
         
         <!-- Color selector -->
         
-        <div class="col-2 p-2 "> Task color selection
-        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-        <div class="btn-group" role="group" aria-label="First group" >
-<!-- Cant pass the color value in to attach to the id in checked items. -->
-        <button type="button" id="Button"class="btn btn-success"onclick="app.tasksController.btnOne('${t.id}')" disabled>1</button>
-        <button type="button" id="Button2"class="btn btn-info"onclick="app.tasksController.btnTwo('${t.id}')"disabled> 2</button>
-        <button type="button" id="Button3"class="btn btn-primary" onclick="app.tasksController.btnThree('${t.id}')"disabled>3</button>
-        <button type="button" id="Button4"class="btn btn-warning" onclick="app.tasksController.btnFour('${t.id}')"disabled>4</button>
-        <button type="button" id="Button5"class="btn btn-danger" onclick="app.tasksController.btnFive('${t.id}')"disabled>5</button>
-        </div>
-        </div>
-        </div>
-        
+        <input class="mt-4" type="color" value="#ff0000" id="colorWell">
+        <!-- Submit Button -->
+        <button class="col-2 btn btn-primary h-50 mt-4 ml-3">Create Repair Order</button>
       </form>
 <!-- Card Generation Form area -->
       <div id="task" class="row justify-content-around">
       
 <!-- Card Template  DO NOT CHANGE FORMTTING it messes with the Layout/Operation-->
             <div class="col-3 m-3 bg-light px-0 border border-dark">
-                <div class="text-dark id='color-new'">
+                <div class="text-dark background-color : t.color">
                     <span class="ml-2">Customer Name</span>
               <button class="col-2 ml-5" onclick="app.tasksController.endRepairOrder('${t.id}')">☓</button>
                 </div>
@@ -116,8 +104,6 @@
                 <div class="row justify-content-center py-1 card-body ">
                     <b class="col-12">Repairs:</b>
                     
-                    
-                    
                     <ul class="col-12 bg-shade">
                         <li class="row align-items-center"></li>
                         <li class="row align-items-center"> </li>
@@ -126,11 +112,15 @@
                     <ul class="col-12 bg-shade"></ul>
                     <ul class="col-12 bg-shade"></ul>
                     
-                        
-                <div id="checkbox"> 
-                      <li class="row align-items-center">
-                          <div class="form-check">
+                        <!-- The good lord knows I hate css/HTML -->
+                <!-- check box section fo the form -->
+                  <div class="form-check" name="chkBox"> 
+                          <ul>
+                            <li class="col-12 flex-column">
                             <input
+                            required
+                            minlength="2"
+                            maxlength="15"
                             class="form-check-input"
                             type="checkbox"
                             value=""
@@ -138,11 +128,12 @@
                           <label class="form-check-label" for="defaultCheck">
                             Repair Check box
                           </label>
-                    <button name="repairItem" onclick="app.tasksController.endRepairItem('${c.id}')"><span class="bg-transparent">🗑</span></button>
-                        </div>
-                        </li>
-                </div>  
-                    </ul>
+                          <button name="repairItem" onclick="app.checkItemsController.endRepairItem('${t.id}')"><span class="bg-transparent">🗑</span></button> 
+                          </li>
+                          </ul>
+                  </div>
+               
+                    
                     <form onsubmit="app.checkItemsController.addCheckItem(event, 'taskId' )">
                     <div class="input-group p-3">
                     <input type="text" class="form-control" name="name"placeholder="Add Repair Task.." 

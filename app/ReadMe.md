@@ -247,3 +247,81 @@ https://stackoverflow.com/questions/52279665/how-to-change-bootstrap-card-header
 // <button type="button" id="Button5"class="btn btn-danger" onclick="app.tasksController.btnFive('${t.id}')"disabled>5</button>
 // </div>
 // </div>
+
+<div class="col-2 p-2 "> Task color selection
+          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group" role="group" aria-label="First group" >
+              <!-- Cant pass the color value in to attach to the id in checked items. -->
+            </div>
+          </div>
+        </div>
+<button type="button" id="Button"class="btn btn-success"onclick="app.tasksController.btnOne('${t.id}')" disabled>1</button>
+        <button type="button" id="Button2"class="btn btn-info"onclick="app.tasksController.btnTwo('${t.id}')"disabled> 2</button>
+<button type="button" id="Button3"class="btn btn-primary" onclick="app.tasksController.btnThree('${t.id}')"disabled>3</button>
+        <button type="button" id="Button4"class="btn btn-warning" onclick="app.tasksController.btnFour('${t.id}')"disabled>4</button>
+<button type="button" id="Button5"class="btn btn-danger" onclick="app.tasksController.btnFive('${t.id}')"disabled>5</button>
+
+// Function to change the coloring of the header // It does not stick with the individual cards (id issue? If I make it global the information is not secure.)
+btnOne(taskId) {
+// console.log("button 1 is in controller")
+var x = document.getElementById("colornew");
+x.style.backgroundColor="#27AE60";
+tasksService.btnOne(color, taskId)
+}
+btnTwo(taskId) {
+var x = document.getElementById("colornew");
+x.style.backgroundColor="#00c9bd";
+tasksService.btnTwo(taskId)
+}
+btnThree(taskId) {
+var x = document.getElementById("colornew");
+x.style.backgroundColor="#3ba5dc";
+tasksService.btnThree(taskId)
+}
+btnFour(taskId) {
+var x = document.getElementById("colornew");
+x.style.backgroundColor="#ff7f50";
+tasksService.btnFour(taskId)
+}
+btnFive(taskId) {
+var x = document.getElementById("colornew");
+x.style.backgroundColor="#eb5757";
+tasksService.btnFive(taskId)
+}
+
+    btnDisable() {
+    document.getElementById("Button").disabled = false;
+    document.getElementById("Button2").disabled = false;
+    document.getElementById("Button3").disabled = false;
+    document.getElementById("Button4").disabled = false;
+    document.getElementById("Button5").disabled = false;
+    }
+
+//Hard wired in -cant get them to attach to the id
+document.getElementById("Button").disabled = false;
+document.getElementById("Button2").disabled = false;
+document.getElementById("Button3").disabled = false;
+document.getElementById("Button4").disabled = false;
+document.getElementById("Button5").disabled = false;
+
+    // card coloring assigned to specific ID and saved to the array.
+    btnOne(color, taskId) {
+    ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+    console.log("button 1 is in services", color, taskId)
+    }
+    btnTwo(taskId) {
+    ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+    console.log("button 2 is in services")
+    }
+    btnThree(taskId) {
+    ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+    console.log("button 3 is in services")
+    }
+    btnFour(taskId) {
+    ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+    console.log("button 4 is in services")
+    }
+    btnFive(taskId) {
+    ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+    console.log("button 5 is in services")
+    }

@@ -6,7 +6,7 @@ export class Task {
         this.name = name
         this.vehicle = vehicle
         this.complaint = complaint
-        this.color = color  //Having trouble defining this item to attach it and the id to the card-- Hoisting issue???
+        this.color = color  
     }
 }
 
