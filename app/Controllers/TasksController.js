@@ -4,7 +4,7 @@ import { loadState } from '../Utils/LocalStorage.js'
 
 // These functions were pulled from the mozzilla link
 var colorWell;
-var defaultColor = "#292b2c";
+var defaultColor = "#005c99";
 window.addEventListener("load", startup, false);
 
 
@@ -16,7 +16,7 @@ function startup() {
   colorWell.select();
 }
 function updateFirst(event) {
-    var p = document.getElementsByName("p");
+    var p = document.getElementsByName("p");  //changed to name 
 
     
     if (p) {
@@ -30,10 +30,9 @@ function updateAll(event) {
     });
 }
 
-//Function to sum the checked boxes vs. the unchecked boxes
+//Function to sum the checked boxes vs. the unchecked boxes similiar tho fireside vndr
 function boxCount(){
     document.getElementById('counter').innerText = ProxyState.task
-  
 }
 
 
@@ -49,7 +48,7 @@ function _drawTasks() {
         template += `
         <div class="col-3 m-3 bg-light px-0 border border-dark">
         
-                <div class="ml-2 text-dark" style="background-color:t.color" name="p">
+                <div class="ml-2 text-dark" style="background-color:${tcolor}" name="p">
                     ${t.name}
                     <button class="col-2 ml-5" onclick="app.tasksController.endRepairOrder('${t.id}')">☓</button>
                 </div>
@@ -68,7 +67,7 @@ function _drawTasks() {
         checkitems.forEach(c => {
             template +=`
 
-                <div class="form-check" name="chk"> 
+                <div class="form-check" style="background-color:${tcolor}"name="chk"> 
                     <ul>
                         <li class="col-12 flex-column">
                         <input
@@ -77,12 +76,12 @@ function _drawTasks() {
                         maxlength="15"
                         class="form-check-input"
                         type="checkbox"
-                        
+                        id="${t.id}"
                         />
                     <label class="form-check-label" for="defaultCheck1">
                         ${c.name}
                     </label>
-                    <button name="repairItem" onclick="app.checkItemsController.endRepairItem('${t.id}')"><span class="bg-transparent">🗑</span></button>
+                    <button id="remove" onclick="app.checkItemsController.endRepairItem('${t.id}')"><span class="bg-transparent">🗑</span></button>
                 </div>
                 </li>
                 </ul>
