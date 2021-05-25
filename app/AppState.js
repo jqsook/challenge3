@@ -16,6 +16,10 @@ class AppState extends EventEmitter {
   
 /** @type {CheckItem[]} */ 
   checkitems = []
+
+  //By this time I was trying anything
+counter = 0
+
 }
 
 

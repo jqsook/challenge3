@@ -2,6 +2,27 @@ import { ProxyState } from '../AppState.js'
 import { checkItemsService } from "../Services/CheckItemsService.js"
 import { loadState } from '../Utils/LocalStorage.js'
 
+// document.getElementById('money').innerText = ProxyState.money
+
+
+
+// Use this to loop through check boxes and sum them up for the counter item.
+function delBoxes(){
+    var boxes = document.getElementsByClassName('chk');
+    var texts = document.getElementsByClassName('txt');
+    
+    for(var i = 0; i<boxes.length; i++){
+        box = boxes[i];
+        txt = texts[i];
+        if(box.checked){
+            box.parentNode.removeChild(box);
+            txt.parentNode.removeChild(txt);
+    }
+    }
+}
+
+
+
 export default class CheckItemsController {
   constructor() {
     ProxyState.on('checkitems')
@@ -9,7 +30,7 @@ export default class CheckItemsController {
   }
 
   addCheckItem(event, task) {
-    console.log("Made it to the Cheitems controller")
+    console.log("Made it to the Check items controller")
     event.preventDefault()
     let form = event.target
     let newcheckitems = {
@@ -19,7 +40,6 @@ export default class CheckItemsController {
       console.log(newcheckitems.name)
 
     
-    
     checkItemsService.addCheckItem(newcheckitems)
     
   }
@@ -27,12 +47,16 @@ export default class CheckItemsController {
 endRepairItem(checkitems) {
         let repcon = confirm("Would you like to delete the Repair Item?")
         console.log('Item-deleted', checkitems)
-        if (repcon == true) {
-            checkItemsService.endRepairItem(checkitems)
+  if (repcon == true) {
+          checkItemsService.endRepairItem(checkitems)
+          delBoxes()
+    
+    
         } else {
             console.log("cancelled task delete")
         }
-    }
+  
+}
 
 
 

@@ -94,15 +94,15 @@
       
 <!-- Card Template  DO NOT CHANGE FORMTTING it messes with the Layout/Operation-->
             <div class="col-3 m-3 bg-light px-0 border border-dark">
-                <div class="text-dark background-color : t.color">
+                <div class="text-dark " style="background-color:#005c99">
                     <span class="ml-2">Customer Name</span>
               <button class="col-2 ml-5" onclick="app.tasksController.endRepairOrder('${t.id}')">☓</button>
                 </div>
-                <div class="ml-2">
-                <span>0/5 Repairs</span>
+                <div class="align-items-start ml-2">
+                <h6>Repair:<span id="counter"></span> </h6>
                 </div>
                 <div class="row justify-content-center py-1 card-body ">
-                    <b class="col-12">Repairs:</b>
+
                     
                     <ul class="col-12 bg-shade">
                         <li class="row align-items-center"></li>
@@ -114,8 +114,8 @@
                     
                         <!-- The good lord knows I hate css/HTML -->
                 <!-- check box section fo the form -->
-                  <div class="form-check" name="chkBox"> 
-                          <ul>
+                  <div class="form-check" name="chkBox" > 
+                          <ul id="content">
                             <li class="col-12 flex-column">
                             <input
                             required

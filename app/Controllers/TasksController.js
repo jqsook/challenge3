@@ -2,6 +2,7 @@ import { ProxyState } from '../AppState.js'
 import { tasksService } from '../Services/TasksService.js'
 import { loadState } from '../Utils/LocalStorage.js'
 
+// These functions were pulled from the mozzilla link
 var colorWell;
 var defaultColor = "#292b2c";
 window.addEventListener("load", startup, false);
@@ -15,18 +16,24 @@ function startup() {
   colorWell.select();
 }
 function updateFirst(event) {
-    var p = t.color
-    console.log("p")
-        // document.querySelector("p")
+    var p = document.getElementsByName("p");
+
     
-  if (p) {
+    if (p) {
     p.style.color = event.target.value;
-  }
+    }
 }
+
 function updateAll(event) {
     document.querySelectorAll("p").forEach(function(p) {
-    t.color.style.color = event.target.value;
+    p.style.color = event.target.value;
     });
+}
+
+//Function to sum the checked boxes vs. the unchecked boxes
+function boxCount(){
+    document.getElementById('counter').innerText = ProxyState.task
+  
 }
 
 
@@ -42,25 +49,26 @@ function _drawTasks() {
         template += `
         <div class="col-3 m-3 bg-light px-0 border border-dark">
         
-                <div class="text-dark background-color : #292b2c, t.color">
+                <div class="ml-2 text-dark" style="background-color:t.color" name="p">
                     ${t.name}
                     <button class="col-2 ml-5" onclick="app.tasksController.endRepairOrder('${t.id}')">☓</button>
                 </div>
-                
+                <div class="align-items-start ml-2">
+                <h6>Repair:<span id="counter"></span> </h6>
+                </div>
                 <div class="row justify-content-center py-1 card-body ">
-                    <b class="col-12">Repairs:</b>
                     <ul class="col-12 bg-shade">
                         <li class="row align-items-center"></li>
                         <li class="row align-items-center"> </li>
                     </ul>
                     <b class="col-12"></b>
                     <ul class="col-12 bg-shade"></ul>`
-          
+
 
         checkitems.forEach(c => {
             template +=`
 
-                <div class="form-check" name="chkBox"> 
+                <div class="form-check" name="chk"> 
                     <ul>
                         <li class="col-12 flex-column">
                         <input
@@ -69,7 +77,8 @@ function _drawTasks() {
                         maxlength="15"
                         class="form-check-input"
                         type="checkbox"
-                        id="defaultCheck1" />
+                        
+                        />
                     <label class="form-check-label" for="defaultCheck1">
                         ${c.name}
                     </label>
@@ -77,7 +86,6 @@ function _drawTasks() {
                 </div>
                 </li>
                 </ul>
-                       
                 `
         })
 
@@ -119,7 +127,7 @@ export class TasksController {
             
         }
         tasksService.createTask(newTask)
-
+        
         form.reset()
         
     }

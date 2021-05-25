@@ -19,8 +19,21 @@ class TasksService {
         // console.log("You are in the Tasks Service", ProxyState.tasks)
     }
 
-
-
+    
+    boxCount() {
+    let x = document.getElementsByClassName('chk');
+    let y = 0
+    for (var i = 0; i < boxes.length; i++) { //Iterates over the array
+        y = x.length; //This should sum the total boxes (checked and unchecked)
+        x = boxes[i]; //This should count the checked boxes
+        if (box.checked) {
+            ProxyState.counter = Math.fraction(x/y)
+            console.log(count)
+        }
+    }
+    
+    }
 }
+
 
 export const tasksService = new TasksService()
