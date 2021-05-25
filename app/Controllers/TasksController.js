@@ -3,32 +3,7 @@ import { tasksService } from '../Services/TasksService.js'
 import { loadState } from '../Utils/LocalStorage.js'
 
 // These functions were pulled from the mozzilla link
-var colorWell;
-var defaultColor = "#005c99";
-window.addEventListener("load", startup, false);
 
-
-function startup() {
-  colorWell = document.querySelector("#colorWell");
-  colorWell.value = defaultColor;
-  colorWell.addEventListener("input", updateFirst, false);
-  colorWell.addEventListener("change", updateAll, false);
-  colorWell.select();
-}
-function updateFirst(event) {
-    var p = document.getElementsByName("p");  //changed to name 
-
-    
-    if (p) {
-    p.style.color = event.target.value;
-    }
-}
-
-function updateAll(event) {
-    document.querySelectorAll("p").forEach(function(p) {
-    p.style.color = event.target.value;
-    });
-}
 
 //Function to sum the checked boxes vs. the unchecked boxes similiar tho fireside vndr
 function boxCount(){
@@ -48,7 +23,7 @@ function _drawTasks() {
         template += `
         <div class="col-3 m-3 bg-light px-0 border border-dark">
         
-                <div class="ml-2 text-dark" style="background-color:${tcolor}" name="p">
+                <div class="ml-2 text-dark" style="background-color:${t.color}" name="p">
                     ${t.name}
                     <button class="col-2 ml-5" onclick="app.tasksController.endRepairOrder('${t.id}')">☓</button>
                 </div>
@@ -67,7 +42,7 @@ function _drawTasks() {
         checkitems.forEach(c => {
             template +=`
 
-                <div class="form-check" style="background-color:${tcolor}"name="chk"> 
+                <div class="form-check" style="background-color:${t.color}"name="chk"> 
                     <ul>
                         <li class="col-12 flex-column">
                         <input
